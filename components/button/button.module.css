@@ -14,9 +14,11 @@
     background: var(--primary);
     color: var(--white);
 }
+
 .primary:hover {
     background: var(--primary--hover);
 }
+
 .primary:active {
     background: var(--primary--active);
 }
@@ -27,9 +29,25 @@
     color: var(--black);
 
 }
+
 .ghost:hover {
     background: var(--grey-light);
 }
+
 .ghost:active {
     background: var(--greyLight--active);
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.down {
+    transform: rotate(90deg);
+    transition: all 0.6s;
+}
+
+.white {
+    fill: var(--white);
 }
