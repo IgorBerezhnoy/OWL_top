@@ -1,11 +1,16 @@
 import {Ptag} from '@/components/Ptag/Ptag';
-import {Button} from '@/components/button/button';
+import {Button} from '@/components/Button/button';
 import {Htag} from '@/components/Htag/Htag';
 import {Tag} from '@/components';
+import {Rating} from '@/components/Rating';
+import {useState} from 'react';
 
 // const inter = Inter({subsets: ['latin']});
 
 export default function Home() {
+  const [rating, setRatting] = useState<number>(0);
+  const [rating1, setRatting1] = useState<number>(0);
+
   return (
     <div>
 
@@ -21,13 +26,15 @@ export default function Home() {
       <Ptag>aaaaassaaa</Ptag>
       <Ptag size={'middle'}>aaaaassaaa</Ptag>
       <Ptag size={'large'}>aaaaassaaa</Ptag>
-      <Tag isLink={true} href={"#"} color={'primary'} size={'small'}>aaaaassaaa</Tag>
+      <Tag isLink={true} href={'#'} color={'primary'} size={'small'}>aaaaassaaa</Tag>
       <Tag color={'ghost'} size={'small'}>aaaaassaaa</Tag>
       <Tag color={'grey'} size={'small'}>aaaaassaaa</Tag>
       <Tag>aaaaassaaa</Tag>
       <Tag color={'red'} size={'middle'}>aaaaassaaa</Tag>
       <Tag size={'large'} color={'grey'}>aaaaassaaa</Tag>
       <Tag size={'large'} color={'green'}>aaaaassaaa</Tag>
+      <Rating rating={rating} setRating={setRatting}/>
+      <Rating rating={rating1} isEditable={false} setRating={setRatting1}/>
     </div>
   );
 }

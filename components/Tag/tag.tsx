@@ -1,7 +1,7 @@
 import React, {JSX} from 'react';
 import s from './tag.module.css';
 import classNames from 'classnames';
-import {TagProps} from '@/components/tag/tag.props';
+import {TagProps} from '@/components/Tag/tag.props';
 
 export const Tag = ({
                       children,

@@ -1,0 +1,6 @@
+.field{
+    fill: var(--primary);
+}
+.noField{
+    fill: #E2E2E2;
+}

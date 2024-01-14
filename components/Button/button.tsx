@@ -1,8 +1,8 @@
 import React, {JSX} from 'react';
-import {ButtonType} from '@/components/button/button.props';
+import {ButtonType} from '@/components/Button/button.props';
 import s from './button.module.css';
 import classNames from 'classnames';
-import {Vector} from '@/components/assets/icons';
+import {Arrow} from '@/components/assets/icons';
 
 export const Button = ({arrow = 'none', children, appearance, className, ...rest}: ButtonType): JSX.Element => {
 
@@ -12,7 +12,7 @@ export const Button = ({arrow = 'none', children, appearance, className, ...rest
   })}>{children}{arrow !== 'none' &&
     <span className={classNames(s.arrow, {[s.down]: arrow === 'down'})}>
 
-     <Vector />
+     <Arrow />
 
     </span>}</button>;
 };
