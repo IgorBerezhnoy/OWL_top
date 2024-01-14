@@ -1,6 +1,14 @@
-.field{
-    fill: var(--primary);
+.star {
+    width: 25px;
+    height: 25px;
+    padding-right: 5px;
 }
-.noField{
+
+.field {
+    fill: var(--primary);
+    cursor: pointer;
+}
+
+.noField {
     fill: #E2E2E2;
 }

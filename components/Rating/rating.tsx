@@ -1,16 +1,26 @@
-import React, {JSX} from 'react';
-import {RatingProps} from '@/components/Rating/RatingProps';
+import React, {JSX, KeyboardEvent, useState} from 'react';
+import {RatingProps} from '@/components/Rating/ratingProps';
 import s from './rating.module.css';
 import classNames from 'classnames';
 import {Star} from '@/components';
 
 export const Rating = ({className, rating, setRating, isEditable = true, ...rest}: RatingProps): JSX.Element => {
+  const [hoverRating, setHoverRating] = useState(rating);
   const arr = [];
   for (let i = 1; i <= 5; i++) {
     if (isEditable) {
-      arr.push(<Star className={`${i <= rating ? s.field : s.noField}`} onClick={() => setRating(i)}/>);
+      const onKeyDown = (e: KeyboardEvent<SVGElement>) => {
+        if (e.code === 'Space' || e.code === 'Enter') {
+          setRating(i);
+          setHoverRating(i);
+        }
+      };
+      arr.push(<Star className={`${s.star} ${i <= hoverRating ? s.field : s.noField}`} onClick={() => setRating(i)}
+                     onMouseEnter={() => setHoverRating(i)} onMouseLeave={() => setHoverRating(rating)}
+                     onKeyDown={onKeyDown}
+                     tabIndex={0}/>);
     } else {
-      arr.push(<Star className={`${1 <= rating ? s.field : s.noField}`}/>);
+      arr.push(<Star className={`${s.star} ${1 <= rating ? s.field : s.noField}`}/>);
 
     }
 
