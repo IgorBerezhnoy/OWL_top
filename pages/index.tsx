@@ -4,10 +4,11 @@ import {Htag} from '@/components/Htag/Htag';
 import {Tag} from '@/components';
 import {Rating} from '@/components/Rating';
 import {useState} from 'react';
+import {withLayout} from '@/layout';
 
 // const inter = Inter({subsets: ['latin']});
 
-export default function Home() {
+export default withLayout(function Home() {
   const [rating, setRatting] = useState<number>(0);
   const [rating1, setRatting1] = useState<number>(0);
 
@@ -37,4 +38,4 @@ export default function Home() {
       <Rating rating={rating1} isEditable={false} setRating={setRatting1}/>
     </div>
   );
-}
+});

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {HeaderProps} from '@/layout/Header/header.props';
 
 export const Header = ({...rest}: HeaderProps): JSX.Element => {
-  return <p {...rest} className={classNames(s.className)}>Header</p>;
+  return <div {...rest} className={classNames(s.className)}>Header</div>;
 };
 
 
