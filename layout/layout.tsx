@@ -4,6 +4,7 @@ import {Footer} from '@/layout/Footer';
 import {Header} from '@/layout/Header';
 import {Sidebar} from '@/layout/Sidebar';
 import s from './layout.module.css';
+import {AppContextProvider, IAppContext} from '@/context/app.context';
 
 const Layout = ({children,}: LayoutProps): JSX.Element => {
   return <div className={s.wrapper}>
@@ -15,10 +16,11 @@ const Layout = ({children,}: LayoutProps): JSX.Element => {
 };
 
 
-export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
+export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
   return function withLayoutComponent(props: T) {
-    return <Layout>
-      <Component {...props}/>
-    </Layout>;
+    return <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+      <Layout>
+        <Component {...props}/>
+      </Layout></AppContextProvider>;
   };
 };
