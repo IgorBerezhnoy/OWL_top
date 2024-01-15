@@ -1,0 +1,40 @@
+.wrapper {
+    background: var(--primary);
+    padding: 20px 35px;
+    font-weight: 300;
+    font-size: var(--font-size--s);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 30px;
+}
+
+.right {
+    display: flex;
+}
+
+.mr_40 {
+    margin-right: 40px;
+}
+
+.wrapper a:hover {
+    transition: all 0.4s;
+    color: var(--greyLight);
+}
+
+@media (max-width: 765px) {
+    .wrapper {
+        line-height: 20px;
+        text-align: center;
+        flex-direction: column
+    }
+
+    .right {
+        flex-direction: column
+    }
+
+    .mr_40 {
+        margin-right: 0;
+    }
+}
