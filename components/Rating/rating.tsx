@@ -15,17 +15,16 @@ export const Rating = ({className, rating, setRating, isEditable = true, ...rest
           setHoverRating(i);
         }
       };
-      arr.push(<Star className={`${s.star} ${i <= hoverRating ? s.field : s.noField}`} onClick={() => setRating(i)}
+      arr.push(<Star key={i} className={`${s.star} ${i <= hoverRating ? s.field : s.noField}`}
+                     onClick={() => setRating(i)}
                      onMouseEnter={() => setHoverRating(i)} onMouseLeave={() => setHoverRating(rating)}
                      onKeyDown={onKeyDown}
                      tabIndex={0}/>);
     } else {
-      arr.push(<Star className={`${s.star} ${1 <= rating ? s.field : s.noField}`}/>);
+      arr.push(<Star key={i} className={`${s.star} ${1 <= rating ? s.field : s.noField}`}/>);
 
     }
-
   }
-
   return <div {...rest} className={classNames(className)}>
     {arr}
   </div>;

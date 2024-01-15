@@ -3,17 +3,20 @@ import {Button} from '@/components/Button/button';
 import {Htag} from '@/components/Htag/Htag';
 import {Tag} from '@/components';
 import {Rating} from '@/components/Rating';
-import {useState} from 'react';
+import {JSX, useState} from 'react';
 import {withLayout} from '@/layout';
+import {GetStaticProps} from 'next';
+import axios from 'axios';
+import {MenuItem} from '@/interfaces/menu.interface';
 
 // const inter = Inter({subsets: ['latin']});
 
-export default withLayout(function Home() {
+export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.Element {
   const [rating, setRatting] = useState<number>(0);
   const [rating1, setRatting1] = useState<number>(0);
-
+  console.log(menu, firstCategory);
   return (
-    <div>
+    <>
 
       <Button appearance={'primary'} arrow={'right'}>primary</Button>
       <Button appearance={'ghost'} arrow={'right'}>primary</Button>
@@ -36,6 +39,25 @@ export default withLayout(function Home() {
       <Tag size={'large'} color={'green'}>aaaaassaaa</Tag>
       <Rating rating={rating} setRating={setRatting}/>
       <Rating rating={rating1} isEditable={false} setRating={setRatting1}/>
-    </div>
+
+    </>
   );
 });
+
+export const getStaticProps: GetStaticProps = async () => {
+  const firstCategory = 0;
+  const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+    firstCategory
+  });
+  return {
+    props: {
+      menu,
+      firstCategory
+    }
+  };
+};
+
+interface HomeProps extends Record<string, unknown> {
+  menu: MenuItem[],
+  firstCategory: number
+}
