@@ -1,0 +1,79 @@
+.menu {
+
+}
+
+.firstLevel {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 20px;
+    align-items: center;
+    font-size: var(--font-size--m);
+    line-height: 25px;
+}
+
+.firstLevel:hover {
+    color: var(--primary);
+
+}
+
+.firstLevelActive {
+    color: var(--primary);
+}
+
+.firstLevelActive {
+    color: var(--primary);
+}
+
+.secondCategory {
+
+}
+
+.secondLevel {
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: var(--greyDark);
+    font-weight: 300;
+    font-size: var(--font-size--s);
+    line-height: 16px;
+}
+
+.secondLevelBlock {
+    display: none;
+}
+
+.secondLevelBlockOpen {
+    display: block;
+}
+
+.secondLevelBlockOpen:last-child {
+    margin-bottom: 20px;
+}
+
+.secondBlock {
+    margin-top: 15px;
+    margin-left: 12px;
+    padding-left: 32px;
+    border-left: 1px solid #dfdfdf;
+}
+
+.thirdLevel {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: var(--greyDark);
+    font-size: var(--font-size--s);
+    line-height: 19px;
+    font-weight: 500;
+
+
+}
+
+.thirdLevel:hover {
+    color: var(--primary);
+}
+
+.thirdLevelActive {
+    color: var(--primary);
+}
