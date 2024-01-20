@@ -1,23 +1,18 @@
 import React, {JSX, useContext} from 'react';
 import {AppContext} from '@/context/app.context';
-import {FirstLevelMenuItem, PageItem} from '@/interfaces/menu.interface';
-import {Book, Box, Courses, Cloud} from '@/components';
-import {TopLevelCategory} from '@/interfaces/page.interface';
+import {PageItem} from '@/interfaces/menu.interface';
 import s from './menu.module.css';
 import classNames from 'classnames';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
+import {firstLevelMenu} from '@/helpers';
 
-const firstLevelMenu: FirstLevelMenuItem[] = [
-  {router: 'courses', name: 'Курсы', icon: <Courses/>, id: TopLevelCategory.Courses},
-  {router: 'services', name: 'Сервисы', icon: <Cloud/>, id: TopLevelCategory.Services},
-  {router: 'books', name: 'Книги', icon: <Book/>, id: TopLevelCategory.Books},
-  {router: 'products', name: 'Товары', icon: <Box/>, id: TopLevelCategory.Products}
-];
 
 export const Menu = (): JSX.Element => {
 
   const {menu, setMenu, firstCategory} = useContext(AppContext);
+
+
   const openSecondLevel = (secondCategory: string) => {
     setMenu && setMenu(menu.map(el => {
       if (el._id.secondCategory === secondCategory) {
@@ -35,7 +30,7 @@ export const Menu = (): JSX.Element => {
           <div key={el.router}>
             <Link href={`/${el.router}`}>
               <div className={classNames(s.firstLevel, {
-                [s.firstLevelActive]: el.id == firstCategory
+                [s.firstLevelActive]: el.id === firstCategory
               })}>
                 {el.icon}
                 <span>{el.name}</span>
