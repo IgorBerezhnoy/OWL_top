@@ -3,17 +3,19 @@ import {withLayout} from '@/layout';
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
 import axios from 'axios';
 import {MenuItem} from '@/interfaces/menu.interface';
-import {TopLevelCategory, TopPageModel} from '@/interfaces/page.interface';
+import {TopPageModel} from '@/interfaces/page.interface';
 import {ParsedUrlQuery} from 'node:querystring';
 import {ProductModel} from '@/interfaces/product.interface';
 import {firstLevelMenu} from '@/helpers';
+import {TopPageComponentProps} from '@/page-components/TopPageComponent';
+import TopPageComponent from '@/page-components/TopPageComponent/TopPageComponent';
 
 
-export default withLayout(function Course({menu, firstCategory, page, products}: CourseProps): JSX.Element {
+export default withLayout(function TopPage({menu, firstCategory, page, products}: TopPageComponentProps): JSX.Element {
   console.log(menu, firstCategory, page, products);
   return (
     <>
-      {page.category}
+      <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
     </>
   );
 });
@@ -29,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking"
+    fallback: 'blocking'
   };
 };
 
@@ -70,10 +72,3 @@ export const getStaticProps: GetStaticProps = async ({params}: GetStaticPropsCon
   }
 };
 
-
-interface CourseProps extends Record<string, unknown> {
-  menu: MenuItem[],
-  firstCategory: TopLevelCategory,
-  page: TopPageModel,
-  products: ProductModel[]
-}
