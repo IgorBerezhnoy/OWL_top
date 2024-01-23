@@ -5,4 +5,5 @@ export {default as Box} from './box';
 export {default as Courses} from './graduation';
 export {default as Cloud} from './cloud';
 export {default as Logo} from './logo';
-export {default as hhStar} from './hhStar';
+export {default as HhStar} from './hhStar';
+export {default as Check} from './check';

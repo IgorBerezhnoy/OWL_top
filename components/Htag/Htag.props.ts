@@ -1,6 +1,6 @@
-import {ReactNode} from 'react';
+import {DetailedHTMLProps, HTMLAttributes, ReactNode} from 'react';
 
-export type HtagProps  = {
+export interface HtagProps extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
   children: ReactNode;
-  tag: 'h1' | 'h2' | 'h3'
-};
+  tag: 'h1' | 'h2' | 'h3';
+}

@@ -1,0 +1,23 @@
+.advantage {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns:auto 1fr ;
+    grid-template-rows: 1fr;
+    row-gap: 15px;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.desckr {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    color: var(--black);
+}
+
+.line {
+    margin: 0 auto;
+    width: 1px;
+    height: 100%;
+    background: #D2D2D2;
+}

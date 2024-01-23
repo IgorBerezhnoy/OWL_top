@@ -27,8 +27,9 @@
     .wrapper {
         line-height: 20px;
         text-align: center;
-        flex-direction: column
+        flex-direction: column;
     }
+
 
     .right {
         flex-direction: column
