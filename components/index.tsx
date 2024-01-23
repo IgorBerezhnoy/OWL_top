@@ -6,3 +6,7 @@ export * from './Button';
 export * from './assets';
 export * from './Card';
 export * from './HhData';
+export * from './Advantages';
+export * from './Input';
+export * from './Textarea';
+export * from './Sort';

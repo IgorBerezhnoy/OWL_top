@@ -12,9 +12,9 @@ export const Sort = ({sort, setSort, className, ...rest}: SortProps): JSX.Elemen
     <SortIcon className={s.sortIcon}/>По рейтингу
     </span>
     <span
-      onClick={() => setSort(SortEnum.Rating)}
+      onClick={() => setSort(SortEnum.Price)}
       className={classNames({[s.active]: sort == SortEnum.Price})}>
-    <SortIcon className={s.sortIcon}/>По&nbsp;цене
+    <SortIcon className={s.sortIcon}/>По цене
     </span>
   </div>;
 };

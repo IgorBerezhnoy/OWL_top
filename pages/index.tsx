@@ -1,7 +1,7 @@
 import {Ptag} from '@/components/Ptag/Ptag';
 import {Button} from '@/components/Button/button';
 import {Htag} from '@/components/Htag/Htag';
-import {Card, Tag} from '@/components';
+import {Card, Input, Tag, Textarea} from '@/components';
 import {Rating} from '@/components/Rating';
 import {JSX, useState} from 'react';
 import {withLayout} from '@/layout';
@@ -17,9 +17,13 @@ export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.E
   console.log(menu, firstCategory);
   return (
     <>
-<Card>aaaaaaaaaa</Card>
-<Card color={"blue"}>aaaaaaaaaa</Card>
-<Card color={"white"}>aaaaaaaaaa</Card>
+      <Input/>
+      <Input placeholder={'aaaaaa'}/>
+      <Textarea placeholder={'aaaaaa'}/>
+      <Textarea />
+      <Card>aaaaaaaaaa</Card>
+      <Card color={'blue'}>aaaaaaaaaa</Card>
+      <Card color={'white'}>aaaaaaaaaa</Card>
       <Button appearance={'primary'} arrow={'right'}>primary</Button>
       <Button appearance={'ghost'} arrow={'right'}>primary</Button>
       <Button appearance={'primary'} arrow={'down'}>primary</Button>
