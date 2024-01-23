@@ -2,6 +2,7 @@ import React from 'react';
 import {TopPageComponentProps} from '@/page-components/TopPageComponent/TopPageComponent.props';
 import s from './TopPageComponent.module.css';
 import {HhData, Htag, Tag} from '@/components';
+import {TopLevelCategory} from '@/interfaces/page.interface';
 
 function TopPageComponent({page, products, firstCategory}: TopPageComponentProps) {
   return (
@@ -16,7 +17,7 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
         <Htag tag="h2">Вакансии - {page.category}</Htag>
         <Tag color={'red'} size={'middle'}>hh.ru</Tag>
         <div className={s.hh}>
-          <HhData {...page.hh!}/>
+          {firstCategory === TopLevelCategory.Courses && <HhData {...page.hh!}/>}
         </div>
       </div>
     </div>

@@ -15,7 +15,12 @@
 .hhTitle {
     display: grid;
     grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
     align-items: baseline;
     justify-items: left;
     gap: 20px;
+}
+
+.hh {
+    grid-column: 1 / span 2;
 }

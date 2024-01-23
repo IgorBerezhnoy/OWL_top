@@ -1,15 +1,93 @@
-.card {
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+.hh {
+    display: flex;
+    justify-content: space-between;
 }
 
-.white {
+.title {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--black);
 
-    background: #FFFFFF;
 
 }
 
-.blue {
-    background: #F9F8FF
+.countValue {
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    color: var(--primary);
+
+
 }
 
+.count {
+    width: 260px;
+    height: 140px;
+    padding: 21px 0 31px;
+    text-align: center;
+    margin-right: 30px;
+
+
+}
+
+.rate svg {
+    margin: 12px 5px 0 5px;
+}
+
+.salary {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 300px));
+    grid-template-rows: 1fr;
+}
+
+.salaryValue {
+    margin-top: 8px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 35px;
+    color: var(--black);
+}
+
+.salaryCard {
+    position: relative;
+    height: 140px;
+    padding: 20px 0;
+}
+
+.salaryCard:not(:first-child):before {
+    left: 0;
+    position: absolute;
+    content: "";
+    height: 86px;
+    width: 1px;
+    background: var(--greyLight);
+}
+
+@media (max-width: 1000px) {
+    .hh {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .count {
+        width: 100%;
+        margin: 0 0 25px 0;
+    }
+}
+
+@media (max-width: 540px) {
+    .salary {
+        grid-template-columns: repeat(1, minmax(280px, 540px));
+    }
+
+    .salaryCard {
+        border-bottom: var(--greyLight) 1px solid;
+    }
+
+    .salaryCard:not(:first-child):before {
+        display: none;
+    }
+}
