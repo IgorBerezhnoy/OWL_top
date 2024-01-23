@@ -7,3 +7,4 @@ export {default as Cloud} from './cloud';
 export {default as Logo} from './logo';
 export {default as HhStar} from './hhStar';
 export {default as Check} from './check';
+export {default as SortIcon} from './sort';

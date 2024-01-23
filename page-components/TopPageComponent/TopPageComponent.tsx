@@ -1,9 +1,11 @@
 import React from 'react';
 import {TopPageComponentProps} from '@/page-components/TopPageComponent/TopPageComponent.props';
 import s from './TopPageComponent.module.css';
-import {HhData, Htag, Ptag, Tag} from '@/components';
+import {HhData, Htag, Tag} from '@/components';
 import {TopLevelCategory} from '@/interfaces/page.interface';
 import {Advantages} from '@/components/Advantages';
+import {Sort} from '@/components/Sort';
+import {SortEnum} from '@/components/Sort/Sort.props';
 
 function TopPageComponent({page, products, firstCategory}: TopPageComponentProps) {
   console.log({page}, {products}, {firstCategory});
@@ -12,7 +14,7 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
       <div className={s.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products && <Tag color={'grey'} size={'middle'}>{products.length}</Tag>}
-        <span>Сортировка</span>
+        <Sort sort={SortEnum.Price} setSort={()=>{}}/>
       </div>
       <div>{products && products.map(el => <div key={el._id}>{el.title}</div>)}</div>
       <div className={s.hhTitle}>
@@ -24,7 +26,7 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
             <Htag tag={'h2'} className={s.advantagesTitle}>Преимущества</Htag>
             <Advantages advantages={page.advantages}/>
           </>}
-          {page.seoText && <Ptag className={s.seoText}>{page.seoText}</Ptag>}
+          {page.seoText && <div className={s.seoText} dangerouslySetInnerHTML={{__html: page.seoText}}/>}
           <Htag tag="h2" className={s.skillsTitle}>Получаемые навыки</Htag>
           <div className={s.tags}>{page.tags.map(el => <Tag color={'primary'} className={s.tag}>{el}</Tag>
           )}</div>
