@@ -10,3 +10,4 @@ export * from './Advantages';
 export * from './Input';
 export * from './Textarea';
 export * from './Sort';
+export * from './Search';

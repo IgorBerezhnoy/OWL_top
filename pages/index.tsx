@@ -1,7 +1,7 @@
 import {Ptag} from '@/components/Ptag/Ptag';
 import {Button} from '@/components/Button/button';
 import {Htag} from '@/components/Htag/Htag';
-import {Card, Input, Tag, Textarea} from '@/components';
+import {Card, Input, Search, Tag, Textarea} from '@/components';
 import {Rating} from '@/components/Rating';
 import {JSX, useState} from 'react';
 import {withLayout} from '@/layout';
@@ -17,10 +17,11 @@ export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.E
   console.log(menu, firstCategory);
   return (
     <>
+      <Search/>
       <Input/>
       <Input placeholder={'aaaaaa'}/>
       <Textarea placeholder={'aaaaaa'}/>
-      <Textarea />
+      <Textarea/>
       <Card>aaaaaaaaaa</Card>
       <Card color={'blue'}>aaaaaaaaaa</Card>
       <Card color={'white'}>aaaaaaaaaa</Card>
