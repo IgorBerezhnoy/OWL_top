@@ -24,14 +24,14 @@
 }
 
 .ghost {
-    border: 1px solid var(--grey-light);
+    border: 1px solid var(--greyLight);
     background: none;
     color: var(--black);
 
 }
 
 .ghost:hover {
-    background: var(--grey-light);
+    background: var(--greyLight);
 }
 
 .ghost:active {
