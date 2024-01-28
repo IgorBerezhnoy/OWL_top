@@ -12,3 +12,4 @@ export * from './Textarea';
 export * from './Sort';
 export * from './Search';
 export * from './Product';
+export * from './Divider';
