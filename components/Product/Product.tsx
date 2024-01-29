@@ -6,6 +6,7 @@ import {Arrow, Button, Card, Rating, Tag} from '@/components';
 import Image from 'next/image';
 import {conversionRub} from '@/utils/conversionRub';
 import {Divider} from '@/components/Divider';
+import {devOfNum} from '@/utils/devOfNum';
 
 export const Product = ({className, product}: ProductProps): JSX.Element => {
   return (
@@ -24,10 +25,19 @@ export const Product = ({className, product}: ProductProps): JSX.Element => {
                                                                  color={'ghost'}>{el}</Tag>)}</div>
       <div className={s.priceTitle}>цена</div>
       <div className={s.creditTitle}>кредит</div>
-      <div className={s.rateTitle}>{product.reviewCount} отзывов</div>
+      <div
+        className={s.rateTitle}>{product.reviewCount} {devOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
       <Divider className={s.hr}/>
       <div className={s.description}>{product.description}</div>
-      <div className={s.feature}>фичи</div>
+      <div className={s.feature}>
+        {product.characteristics.map(el => (
+          <div key={el.name} className={s.characteristics}>
+            <span className={s.characteristicName}>{el.name}</span>
+            <span className={s.dots}></span>
+            <span className={s.characteristicValue}>{el.value}</span>
+          </div>
+        ))}
+      </div>
       <div className={s.advBlock}>
         {product.advantages && <div className={s.advantages}>
           <div className={s.advantagesTitle}>Преимущества</div>
@@ -39,7 +49,7 @@ export const Product = ({className, product}: ProductProps): JSX.Element => {
           {product.disadvantages}
         </div>}
       </div>
-      <Divider className={s.hr}/>
+      <Divider className={classNames(s.hr, s.hr2)}/>
       <div className={s.actions}>
         <Button appearance={'primary'}>Узнать подробнее</Button>
         <Button appearance={'ghost'} className={s.reviewBottom}>Читать отзывы <Arrow/></Button>

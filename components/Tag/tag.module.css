@@ -42,3 +42,9 @@
     background: none;
     border: 1px solid var(--primary);
 }
+
+@media screen and (max-width: 480px) {
+    .tag {
+       font-size: 12px;
+    }
+}
