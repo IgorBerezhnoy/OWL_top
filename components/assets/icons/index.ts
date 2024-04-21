@@ -10,4 +10,5 @@ export {default as Check} from './check';
 export {default as SortIcon} from './sort';
 export {default as SearchIcon} from './search';
 export {default as UserIcon} from './user';
+export {default as closeIcon} from './closeIcon';
 

@@ -1,8 +1,8 @@
-import React, {JSX, useState} from 'react';
+import React, {Fragment, JSX, useState} from 'react';
 import s from './Product.module.css';
 import classNames from 'classnames';
 import {ProductProps} from '@/components/Product/Product.props';
-import {Arrow, Button, Card, Rating, Review, Tag} from '@/components';
+import {Arrow, Button, Card, Rating, Review, ReviewForm, Tag} from '@/components';
 import Image from 'next/image';
 import {conversionRub} from '@/utils/conversionRub';
 import {Divider} from '@/components/Divider';
@@ -61,7 +61,12 @@ export const Product = ({className, product}: ProductProps): JSX.Element => {
       </Card>
       <Card color={'blue'}
             className={classNames(s.reviews, {[s.opened]: !isReviewOpened, [s.closed]: isReviewOpened})}>
-        {product.reviews.map(el => <Review key={el._id} review={el}/>)}</Card>
+        {product.reviews.map(el => <Fragment>
+          <Review review={el}/>
+          <Divider/>
+        </Fragment>)}
+        <ReviewForm productId={product._id}/>
+      </Card>
     </>
   )
     ;
