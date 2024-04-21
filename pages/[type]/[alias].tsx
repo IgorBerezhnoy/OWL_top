@@ -11,8 +11,7 @@ import {TopPageComponentProps} from '@/page-components/TopPageComponent';
 import TopPageComponent from '@/page-components/TopPageComponent/TopPageComponent';
 
 
-export default withLayout(function TopPage({menu, firstCategory, page, products}: TopPageComponentProps): JSX.Element {
-  console.log(menu, firstCategory, page, products);
+export default withLayout(function TopPage({firstCategory, page, products}: TopPageComponentProps): JSX.Element {
   return (
     <>
       <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
@@ -23,6 +22,7 @@ export default withLayout(function TopPage({menu, firstCategory, page, products}
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: string[] = [];
   for (const m of firstLevelMenu) {
+
     const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
       firstCategory: m.id
     });

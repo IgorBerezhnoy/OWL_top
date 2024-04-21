@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React, {useReducer} from 'react';
 import {TopPageComponentProps} from '@/page-components/TopPageComponent/TopPageComponent.props';
 import s from './TopPageComponent.module.css';
 import {HhData, Htag, Product, Tag} from '@/components';

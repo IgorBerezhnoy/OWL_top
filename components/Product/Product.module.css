@@ -150,6 +150,24 @@
 
 }
 
+.opened {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
+}
+
+.closed {
+    max-height: 100%;
+    padding: 30px;
+}
+.reviews{
+}
+.arrow{
+    transition: all 0.3s;
+}
+.down{
+    transform: rotate(90deg);
+}
 .dots {
     border-bottom: 1px var(--greyLight) dashed;
 }
