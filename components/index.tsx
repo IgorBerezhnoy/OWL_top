@@ -13,3 +13,5 @@ export * from './Sort';
 export * from './Search';
 export * from './Product';
 export * from './Divider';
+
+export * from './Review';

@@ -2,13 +2,13 @@ import React, {JSX, useState} from 'react';
 import s from './Product.module.css';
 import classNames from 'classnames';
 import {ProductProps} from '@/components/Product/Product.props';
-import {Arrow, Button, Card, Rating, Tag} from '@/components';
+import {Arrow, Button, Card, Rating, Review, Tag} from '@/components';
 import Image from 'next/image';
 import {conversionRub} from '@/utils/conversionRub';
 import {Divider} from '@/components/Divider';
 import {devOfNum} from '@/utils/devOfNum';
 
-export const Product = ({className, product, ...props}: ProductProps): JSX.Element => {
+export const Product = ({className, product}: ProductProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
   return (
     <>
@@ -61,9 +61,10 @@ export const Product = ({className, product, ...props}: ProductProps): JSX.Eleme
       </Card>
       <Card color={'blue'}
             className={classNames(s.reviews, {[s.opened]: !isReviewOpened, [s.closed]: isReviewOpened})}>
-        aaaaaaaaaaaaaaaaaaaaaaa</Card>
+        {product.reviews.map(el => <Review key={el._id} review={el}/>)}</Card>
     </>
-  );
+  )
+    ;
 };
 
 
