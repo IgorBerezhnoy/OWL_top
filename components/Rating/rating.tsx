@@ -6,7 +6,7 @@ import {Star} from '@/components';
 
 export const Rating = forwardRef(({
                                     className,
-                                    rating,
+                                    rating, errorMessage,
                                     setRating = () => {
                                     },
                                     isEditable = true,
@@ -22,7 +22,8 @@ export const Rating = forwardRef(({
             setHoverRating(i);
           }
         };
-        arr.push(<Star key={i} className={`${s.star} ${i <= hoverRating ? s.field : s.noField}`}
+        arr.push(<Star key={i}
+                       className={`${s.star} ${i <= hoverRating ? s.field : s.noField} ${errorMessage ? s.errorStars : ''}`}
                        onClick={() => setRating(i)}
                        onMouseEnter={() => setHoverRating(i)} onMouseLeave={() => setHoverRating(rating)}
                        onKeyDown={onKeyDown}
@@ -32,8 +33,9 @@ export const Rating = forwardRef(({
 
       }
     }
-    return <div {...rest} className={classNames(className)} ref={ref}>
+    return <div {...rest} className={classNames(className, s.ratingWrapper)} ref={ref}>
       {arr}
+      {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
     </div>;
   }
 );

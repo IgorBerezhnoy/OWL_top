@@ -12,3 +12,20 @@
 .noField {
     fill: #E2E2E2;
 }
+
+.ratingWrapper {
+    position: relative;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+
+    color: var(--red);
+}
+
+.errorStars {
+    fill: var(--red);
+}
+
