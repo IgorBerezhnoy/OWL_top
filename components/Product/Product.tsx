@@ -8,11 +8,19 @@ import {conversionRub} from '@/utils/conversionRub';
 import {Divider} from '@/components/Divider';
 import {devOfNum} from '@/utils/devOfNum';
 
-export const Product = ({className, product}: ProductProps): JSX.Element => {
+export const Product = ({className, product, ...rest}: ProductProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+  const reviewRef = React.useRef<HTMLDivElement>(null);
+  const scrollToReview = () => {
+    setIsReviewOpened(true);
+    reviewRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
   return (
-    <>
-      <Card className={classNames(s.product, className)}>
+    <div className={className}{...rest}>
+      <Card className={classNames(s.product)}>
         <div className={s.logo}>
           <Image src={product.image} alt={product.title} width={70} height={70}/></div>
         <div className={s.title}>{product.title}</div>
@@ -28,7 +36,10 @@ export const Product = ({className, product}: ProductProps): JSX.Element => {
         <div className={s.priceTitle}>цена</div>
         <div className={s.creditTitle}>кредит</div>
         <div
-          className={s.rateTitle}>{product.reviewCount} {devOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
+          className={s.rateTitle}>
+          <a href={'#ref'} className={s.rewScroll}
+             onClick={scrollToReview}> {product.reviewCount} {devOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a>
+        </div>
         <Divider className={s.hr}/>
         <div className={s.description}>{product.description}</div>
         <div className={s.feature}>
@@ -60,14 +71,15 @@ export const Product = ({className, product}: ProductProps): JSX.Element => {
         </div>
       </Card>
       <Card color={'blue'}
-            className={classNames(s.reviews, {[s.opened]: !isReviewOpened, [s.closed]: isReviewOpened})}>
+            className={classNames(s.reviews, {[s.opened]: !isReviewOpened, [s.closed]: isReviewOpened})}
+            ref={reviewRef}>
         {product.reviews.map(el => <Fragment key={el._id}>
           <Review review={el}/>
           <Divider/>
         </Fragment>)}
         <ReviewForm productId={product._id}/>
       </Card>
-    </>
+    </div>
   )
     ;
 };

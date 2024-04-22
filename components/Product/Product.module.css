@@ -158,7 +158,7 @@
 }
 
 .closed {
-    
+
     max-height: 100%;
     padding: 30px;
 }
@@ -177,6 +177,14 @@
 
 .dots {
     border-bottom: 1px var(--greyLight) dashed;
+}
+
+.rewScroll {
+    color: var(--primary);
+}
+
+.rewScroll:hover {
+    color: var(--primary--hover);
 }
 
 @media screen and (max-width: 1320px) {
