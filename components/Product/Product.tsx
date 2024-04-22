@@ -61,7 +61,7 @@ export const Product = ({className, product}: ProductProps): JSX.Element => {
       </Card>
       <Card color={'blue'}
             className={classNames(s.reviews, {[s.opened]: !isReviewOpened, [s.closed]: isReviewOpened})}>
-        {product.reviews.map(el => <Fragment>
+        {product.reviews.map(el => <Fragment key={el._id}>
           <Review review={el}/>
           <Divider/>
         </Fragment>)}

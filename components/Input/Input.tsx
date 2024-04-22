@@ -1,10 +1,13 @@
-import React, {JSX} from 'react';
+import React, {ForwardedRef, forwardRef, JSX} from 'react';
 import s from './Input.module.css';
 import classNames from 'classnames';
 import {InputProps} from '@/components/Input/Input.props';
 
-export const Input = ({className, ...rest}: InputProps): JSX.Element => {
-  return <input {...rest} className={classNames(className, s.input)}/>;
-};
+export const Input = forwardRef(({
+                                   className,
+                                   ...rest
+                                 }: InputProps, ref: ForwardedRef<HTMLInputElement>): JSX.Element => {
+  return <input className={classNames(className, s.input)} ref={ref}  {...rest} />;
+});
 
 

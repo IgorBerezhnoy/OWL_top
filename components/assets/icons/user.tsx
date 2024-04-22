@@ -4,7 +4,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
 
   <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}
        fill="currentColor">
-    <g clip-path="url(#clip0_1_269)">
+    <g clipPath="url(#clip0_1_269)">
       <path
         d="M15 0C6.72902 0 0 6.72902 0 15C0 23.271 6.72902 30 15 30C23.271 30 30 23.271 30 15C30 6.72902 23.271 0 15 0ZM15 27.6253C8.03824 27.6253 2.37469 21.9613 2.37469 15C2.37469 8.03865 8.03824 2.37469 15 2.37469C21.9613 2.37469 27.6253 8.03906 27.6253 15.0004C27.6253 21.9618 21.9613 27.6253 15 27.6253Z"
         fill="#7653FC"/>

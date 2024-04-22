@@ -64,14 +64,16 @@ export const Menu = (): JSX.Element => {
     </div>;
   };
   const buildThirdLevel = (pages: PageItem[], route: string) => {
-    return <>{pages.map(el =>
-      (<Link href={`/${route}/${el.alias}`} className={classNames(s.thirdLevel, {
-        [s.thirdLevelActive]: `/${route}/${el.alias}` == router.asPath
-      })}>{el.category}</Link>)
+    return <>{pages.map(el => {
+        const className = classNames(s.thirdLevel, {
+          [s.thirdLevelActive]: `/${route}/${el.alias}` == router.asPath
+        });
+        return (<Link key={el._id} href={`/${route}/${el.alias}`} className={className}>{el.category}</Link>);
+      }
     )}</>;
   };
 
-  return <div className={s.menu}>
+  return <div className={classNames(s.menu)}>
     {buildFirstLevel()}
     {/*<ul>{menu.map(el => <li key={el._id.secondCategory}>{el._id.secondCategory}</li>)}</ul>*/}
   </div>;

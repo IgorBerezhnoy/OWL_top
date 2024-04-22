@@ -33,7 +33,7 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
           </>}
           {page.seoText && <div className={s.seoText} dangerouslySetInnerHTML={{__html: page.seoText}}/>}
           <Htag tag="h2" className={s.skillsTitle}>Получаемые навыки</Htag>
-          <div className={s.tags}>{page.tags.map(el => <Tag color={'primary'} className={s.tag}>{el}</Tag>
+          <div className={s.tags}>{page.tags.map(el => <Tag color={'primary'} key={el} className={s.tag}>{el}</Tag>
           )}</div>
         </div>
       </div>
