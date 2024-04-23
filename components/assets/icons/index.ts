@@ -13,5 +13,5 @@ export {default as SearchIcon} from './search';
 export {default as UserIcon} from './user';
 export {default as CloseIcon} from './closeIcon';
 export {default as CrossIcon} from './cross';
-export {default as LinesIcon} from './lines';
+export {default as MenuIcon} from './lines';
 

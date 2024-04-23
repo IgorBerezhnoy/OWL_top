@@ -21,8 +21,8 @@ export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.E
     <>
       <ButtonIcon appearance={'primary'} icon={'arrow'}/>
       <ButtonIcon appearance={'primary'} icon={'cross'}/>
-      <ButtonIcon appearance={'primary'} icon={'lines'}/>
-      <ButtonIcon appearance={'white'} icon={'lines'}/>
+      <ButtonIcon appearance={'primary'} icon={'menu'}/>
+      <ButtonIcon appearance={'white'} icon={'menu'}/>
       <ButtonIcon appearance={'white'} icon={'cross'}/>
       aaa
       <Search/>

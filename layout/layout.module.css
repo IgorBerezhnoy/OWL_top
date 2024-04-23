@@ -37,7 +37,8 @@
     }
 
     .header {
-        display: block;
+        display: grid;
+
     }
 
     .body {
@@ -51,5 +52,11 @@
 "header"
 "body"
 "footer";
+    }
+}
+
+@media (max-width: 576px) {
+    .wrapper {
+        gap: 10px;
     }
 }
