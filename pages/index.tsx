@@ -9,6 +9,7 @@ import {GetStaticProps} from 'next';
 import axios from 'axios';
 import {MenuItem} from '@/interfaces/menu.interface';
 import {API} from '@/helpers/api';
+import {ButtonIcon} from '@/components/ButtonIcon';
 
 // const inter = Inter({subsets: ['latin']});
 
@@ -18,6 +19,12 @@ export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.E
   console.log(menu, firstCategory);
   return (
     <>
+      <ButtonIcon appearance={'primary'} icon={'arrow'}/>
+      <ButtonIcon appearance={'primary'} icon={'cross'}/>
+      <ButtonIcon appearance={'primary'} icon={'lines'}/>
+      <ButtonIcon appearance={'white'} icon={'lines'}/>
+      <ButtonIcon appearance={'white'} icon={'cross'}/>
+      aaa
       <Search/>
       <Input/>
       <Input placeholder={'aaaaaa'}/>

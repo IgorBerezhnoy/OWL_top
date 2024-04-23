@@ -8,6 +8,7 @@ import {Controller, useForm} from 'react-hook-form';
 import {ReviewFormInterface, ReviewSendResponse} from '@/components/ReviewForm/ReviewForm.inteface';
 import {API} from '@/helpers/api';
 import axios from 'axios';
+import {motion} from 'framer-motion';
 
 export const ReviewForm = ({className, productId, ...rest}: ReviewFormProps): JSX.Element => {
   const {register, reset, handleSubmit, control, formState: {errors}} = useForm<ReviewFormInterface>();

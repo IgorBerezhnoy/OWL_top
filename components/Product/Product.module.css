@@ -104,6 +104,7 @@
 
 .reviewBottom {
     margin-left: 20px;
+
 }
 
 .reviewBottom svg {
@@ -150,21 +151,10 @@
 
 }
 
-.opened {
-
-    overflow: hidden;
-    max-height: 0;
-    padding: 0;
-}
-
-.closed {
-
-    max-height: 100%;
-    padding: 30px;
-}
 
 .reviews {
-
+    overflow: hidden;
+    padding: 30px;
 }
 
 .arrow {
@@ -319,5 +309,11 @@
 			"advBlock"
 			"hr2"
 			"actions";
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .reviewBottom {
+        margin: 20px 0 0 0;
     }
 }

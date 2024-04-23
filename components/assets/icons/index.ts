@@ -11,5 +11,7 @@ export {default as Check} from './check';
 export {default as SortIcon} from './sort';
 export {default as SearchIcon} from './search';
 export {default as UserIcon} from './user';
-export {default as closeIcon} from './closeIcon';
+export {default as CloseIcon} from './closeIcon';
+export {default as CrossIcon} from './cross';
+export {default as LinesIcon} from './lines';
 

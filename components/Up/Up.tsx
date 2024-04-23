@@ -4,6 +4,7 @@ import ArrowUp from '@/components/assets/icons/arrowUp';
 import {useScrollY} from '@/hooks/useScrollY';
 import {useAnimation} from 'framer-motion';
 import {motion} from 'framer-motion';
+import {ButtonIcon} from '@/components/ButtonIcon';
 
 export const Up = (): JSX.Element => {
   const controls = useAnimation();
@@ -18,11 +19,11 @@ export const Up = (): JSX.Element => {
       behavior: 'smooth',
     });
   };
-  return <motion.button
+  return <motion.div
     animate={controls}
     onClick={scrollToTop}
     initial={{opacity: 0}}
-    className={s.up}><ArrowUp className={s.upIcon}/></motion.button>;
+    className={s.up}><ButtonIcon appearance={'primary'} icon={'arrow'}/></motion.div>;
 };
 
 

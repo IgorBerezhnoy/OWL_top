@@ -1,0 +1,51 @@
+.buttonIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.buttonIcon:hover {
+    opacity: 0.8;
+}
+
+.primary {
+    background: var(--primary);
+}
+
+.primary svg {
+    fill: var(--greyLight);
+
+}
+
+
+.white {
+    background: var(--white);
+}
+
+.white:hover, .white:hover svg {
+    background: var(--primary--hover);
+    fill: var(--white);
+}
+
+.white:active, .white:active svg {
+    background: var(--primary--active);
+    fill: var(--white);
+
+}
+
+.primary:active {
+
+    background: var(--primary--active);
+}
+
+.white svg {
+    fill: var(--primary);
+
+}
