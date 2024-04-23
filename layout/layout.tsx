@@ -19,7 +19,7 @@ const Layout = ({children,}: LayoutProps): JSX.Element => {
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: ({
                                                                                           menu,
                                                                                           firstCategory
-                                                                                        }: HomeProps) => React.JSX.Element) => {
+                                                                                        }: T) => React.JSX.Element) => {
   return function withLayoutComponent(props: T) {
     return <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
       <Layout>

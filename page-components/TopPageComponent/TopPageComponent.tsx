@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useEffect, useReducer} from 'react';
 import {TopPageComponentProps} from '@/page-components/TopPageComponent/TopPageComponent.props';
 import s from './TopPageComponent.module.css';
 import {HhData, Htag, Product, Tag} from '@/components';
@@ -6,13 +6,17 @@ import {TopLevelCategory} from '@/interfaces/page.interface';
 import {Advantages} from '@/components/Advantages';
 import {Sort} from '@/components/Sort';
 import {SortEnum} from '@/components/Sort/Sort.props';
-import {sortReducer} from '@/page-components/TopPageComponent/sort.reducer';
+import {SortActions, sortReducer} from '@/page-components/TopPageComponent/sort.reducer';
 
 function TopPageComponent({page, products, firstCategory}: TopPageComponentProps) {
   const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
+
   const setSort = (sort: SortEnum) => {
-    dispatchSort({type: sort});
+    dispatchSort({type: sort} as SortActions);
   };
+  useEffect(() => {
+    dispatchSort({type: SortEnum.Reset, initialState: products});
+  }, [products]);
 
   return (
     <div className={s.wrapper}>
