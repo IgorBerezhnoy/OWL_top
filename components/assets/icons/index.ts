@@ -1,4 +1,5 @@
 export {default as Arrow} from './arrow';
+export {default as ArrowUpIcon} from './arrowUp';
 export {default as Star} from './star';
 export {default as Book} from './book';
 export {default as Box} from './box';

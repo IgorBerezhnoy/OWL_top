@@ -1,4 +1,4 @@
-import React, {Fragment, JSX, useState} from 'react';
+import React, {ForwardedRef, forwardRef, Fragment, JSX, useState} from 'react';
 import s from './Product.module.css';
 import classNames from 'classnames';
 import {ProductProps} from '@/components/Product/Product.props';
@@ -7,8 +7,13 @@ import Image from 'next/image';
 import {conversionRub} from '@/utils/conversionRub';
 import {Divider} from '@/components/Divider';
 import {devOfNum} from '@/utils/devOfNum';
+import {motion} from 'framer-motion';
 
-export const Product = ({className, product, ...rest}: ProductProps): JSX.Element => {
+export const Product = motion(forwardRef(({
+                                            className,
+                                            product,
+                                            ...rest
+                                          }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
   const reviewRef = React.useRef<HTMLDivElement>(null);
   const scrollToReview = () => {
@@ -19,7 +24,7 @@ export const Product = ({className, product, ...rest}: ProductProps): JSX.Elemen
     });
   };
   return (
-    <div className={className}{...rest}>
+    <div className={className}{...rest} ref={ref}>
       <Card className={classNames(s.product)}>
         <div className={s.logo}>
           <Image src={product.image} alt={product.title} width={70} height={70}/></div>
@@ -82,6 +87,6 @@ export const Product = ({className, product, ...rest}: ProductProps): JSX.Elemen
     </div>
   )
     ;
-};
+}));
 
 

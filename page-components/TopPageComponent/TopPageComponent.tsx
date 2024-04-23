@@ -25,7 +25,7 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
         {products && <Tag color={'grey'} size={'middle'}>{products.length}</Tag>}
         <Sort sort={sort} setSort={setSort}/>
       </div>
-      <div>{sortedProducts && sortedProducts.map(el => <Product key={el._id} product={el}/>)}</div>
+      <div>{sortedProducts && sortedProducts.map(el => <Product layout key={el._id} product={el}/>)}</div>
       <div className={s.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>
         <Tag color={'red'} size={'middle'}>hh.ru</Tag>
