@@ -100,12 +100,14 @@ export const Menu = (): JSX.Element => {
           [s.thirdLevelActive]: `/${route}/${el.alias}` == router.asPath
         });
         return (<motion.li key={el._id} variants={variantsChildren}>
-          <Link href={`/${route}/${el.alias}`} className={className}>
-            <span tabIndex={isOpened ? 0 : -1}
-                  className={classNames(s.thirdLevel, {
-                    [s.thirdLevelActive]: `/${route}/${el.alias}` == router.asPath
-                  })}
-                  aria-current={`/${route}/${el.alias}` == router.asPath ? 'page' : false}>{el.category.length > 25 ? el.category.slice(0, 20) + '...' : el.category}</span></Link>
+          <Link href={`/${route}/${el.alias}`} className={className} tabIndex={isOpened ? 0 : -1}>
+            <span
+              className={classNames(s.thirdLevel, {
+                [s.thirdLevelActive]: `/${route}/${el.alias}` == router.asPath
+              })}
+              aria-current={`/${route}/${el.alias}` == router.asPath ? 'page' : false}>
+              {el.category.length > 25 ? el.category.slice(0, 20) + '...' : el.category}
+            </span></Link>
         </motion.li>);
       }
     )}</>;

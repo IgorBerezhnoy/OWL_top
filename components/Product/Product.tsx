@@ -25,6 +25,7 @@ export const Product = motion(forwardRef(({
     hidden: {
       opacity: 0,
       height: 0
+
     }
   };
   const scrollToReview = () => {
@@ -86,19 +87,19 @@ export const Product = motion(forwardRef(({
             отзывы <Arrow className={classNames(s.arrow, {[s.down]: isReviewOpened})}/></Button>
         </div>
       </Card>
-      <motion.div
+      {<motion.div
         animate={isReviewOpened ? 'visible' : 'hidden'}
         variants={variants}
         initial={'hidden'}
       ><Card color={'blue'}
              className={classNames(s.reviews)}
              ref={reviewRef}>
-        {product.reviews.map(el => <Fragment key={el._id}>
+        {isReviewOpened && <>{product.reviews.map(el => <Fragment key={el._id}>
           <Review review={el}/>
           <Divider/>
-        </Fragment>)}
+        </Fragment>)}</>}
         <ReviewForm productId={product._id}/>
-      </Card></motion.div>
+      </Card></motion.div>}
     </div>
   )
     ;

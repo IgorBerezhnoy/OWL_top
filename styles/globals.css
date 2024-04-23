@@ -1,15 +1,15 @@
 :root {
     --black: #3B434E;
     --greyLight: #EBEBEB;
-    --greyDark: #787d85;
+    --greyDark: #6c7077;
     --greyLight--active: #8f8f8f;
     --white: white;
-    --primary: #7653FC;
+    --primary: #7351f5;
     --primary--hover: #8069ff;
     --primary--active: #4e36e5;
     --red: #FC836D;
     --red-light: #fea291;
-    --green: #1DC37E;
+    --green: #007d48;
     --green-light: #C8F8E4;
 
     --font-family: 'Noto Sans', sans-serif;

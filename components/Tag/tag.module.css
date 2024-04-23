@@ -28,7 +28,7 @@
 .grey {
     color: var(--white);
     font-weight: bold;
-    background: #b3c0d9;
+    background: #98a9ce;
 }
 
 .green {
@@ -45,6 +45,6 @@
 
 @media screen and (max-width: 480px) {
     .tag {
-       font-size: 12px;
+        font-size: 12px;
     }
 }
