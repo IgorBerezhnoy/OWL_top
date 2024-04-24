@@ -171,6 +171,7 @@
 
 .rewScroll {
     color: var(--primary);
+    cursor: pointer;
 }
 
 .rewScroll:hover {

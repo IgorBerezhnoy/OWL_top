@@ -29,3 +29,6 @@ export const withLayout = <T extends Record<string, unknown> & IAppContext>(Comp
       </Layout></AppContextProvider>;
   };
 };
+
+//render to string
+//

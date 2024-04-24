@@ -19,7 +19,7 @@ export const Review = ({className, review, ...rest}: ReviewProps): JSX.Element =
       {format(new Date(createdAt), 'dd MMMM yyyy', {locale: ru})}
     </div>
     <div className={s.rating}>
-      <Rating rating={rating}/>
+      <Rating rating={rating} isEditable={false}/>
     </div>
     <div className={s.description}>
       {description}

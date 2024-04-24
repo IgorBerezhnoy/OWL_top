@@ -2,6 +2,16 @@
     display: none;
 }
 
+.button {
+    font-family: var(--font-family);
+    font-size: var(--font-size--m);
+    cursor: pointer;
+    transition: all 0.6s;
+    border: none;
+    background: transparent;
+    padding: 10px;
+}
+
 .active {
     color: var(--primary);
 }
@@ -12,10 +22,6 @@
 
 }
 
-.sort span {
-    cursor: pointer;
-    transition: all 0.6s;
-}
 
 .sort {
     transition: all 0.6s;
@@ -24,6 +30,7 @@
     gap: 40px;
 }
 
-.sort span:not(.active) {
+.sort button:not(.active) {
     grid-template-columns: 1fr;
 }
+

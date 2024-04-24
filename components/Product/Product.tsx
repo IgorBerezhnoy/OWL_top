@@ -32,7 +32,7 @@ export const Product = motion(forwardRef(({
     setIsReviewOpened(true);
     reviewRef.current?.scrollIntoView({
       behavior: 'smooth',
-      block: 'start'
+      block: 'end'
     });
   };
   return (
@@ -47,14 +47,14 @@ export const Product = motion(forwardRef(({
             <Tag className={s.oldPrice} color={'green'}>{conversionRub(product.price - product.oldPrice)}</Tag>}
         </div>
         <div className={s.credit}>{conversionRub(product.credit)}<span>/мес</span></div>
-        <div className={s.rating}><Rating rating={product.reviewAvg ?? product.initialRating}/></div>
+        <div className={s.rating}><Rating rating={product.reviewAvg ?? product.initialRating} isEditable={false}/></div>
         <div className={s.tags}>{product.categories.map(el => <Tag className={s.tab} key={el}
                                                                    color={'ghost'}>{el}</Tag>)}</div>
         <div className={s.priceTitle}>цена</div>
         <div className={s.creditTitle}>кредит</div>
         <div
           className={s.rateTitle}>
-          <a href={'#ref'} className={s.rewScroll}
+          <a href={'#ref'} className={s.rewScroll} tabIndex={0}
              onClick={scrollToReview}> {product.reviewCount} {devOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a>
         </div>
         <Divider className={s.hr}/>
@@ -97,8 +97,8 @@ export const Product = motion(forwardRef(({
         {isReviewOpened && <>{product.reviews.map(el => <Fragment key={el._id}>
           <Review review={el}/>
           <Divider/>
-        </Fragment>)}</>}
-        <ReviewForm productId={product._id}/>
+        </Fragment>)}
+          <ReviewForm productId={product._id}/></>}
       </Card></motion.div>}
     </div>
   )

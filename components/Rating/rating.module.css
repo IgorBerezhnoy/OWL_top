@@ -4,9 +4,13 @@
     padding: 0 3px;
 }
 
+.pointer {
+    cursor: pointer;
+
+}
+
 .field {
     fill: var(--primary);
-    cursor: pointer;
 }
 
 .noField {

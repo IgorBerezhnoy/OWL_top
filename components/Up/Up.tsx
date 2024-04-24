@@ -1,6 +1,5 @@
 import React, {JSX, useEffect} from 'react';
 import s from './Up.module.css';
-import ArrowUp from '@/components/assets/icons/arrowUp';
 import {useScrollY} from '@/hooks/useScrollY';
 import {useAnimation} from 'framer-motion';
 import {motion} from 'framer-motion';
