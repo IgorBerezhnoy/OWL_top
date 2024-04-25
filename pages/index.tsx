@@ -9,12 +9,12 @@ import {Loader} from '@/components';
 
 // const inter = Inter({subsets: ['latin']});
 
-export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.Element {
+export default withLayout(function Home({menu}: HomeProps): JSX.Element {
   const {push} = useRouter();
 
   useEffect(() => {
     push('courses/' + menu[0].pages[0].alias);
-  }, []);
+  }, [menu, push]);
   return (
     <>
       <Loader/>

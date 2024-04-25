@@ -28,10 +28,8 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
           {products.length}</Tag>}
         <Sort sort={sort} setSort={setSort}/>
       </div>
-      <div role={'list'}>{sortedProducts && sortedProducts.map(el => <Product role={'listitem'}
-                                                                              layout={!shouldReduceMotion}
-                                                                              key={el._id}
-                                                                              product={el}/>)}</div>
+      <div role={'list'}>{sortedProducts && sortedProducts.map(el => (
+        <Product role={'listitem'} layout={!shouldReduceMotion} key={el._id} product={el}/>))}</div>
       <div className={s.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>
         <Tag color={'red'} size={'middle'}>hh.ru</Tag>
