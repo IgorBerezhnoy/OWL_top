@@ -10,7 +10,7 @@ import {API} from '@/helpers/api';
 import axios from 'axios';
 
 export const ReviewForm = ({className, productId, ...rest}: ReviewFormProps): JSX.Element => {
-  const {register, reset, handleSubmit, control, formState: {errors}} = useForm<ReviewFormInterface>();
+  const {register, reset, clearErrors, handleSubmit, control, formState: {errors}} = useForm<ReviewFormInterface>();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
   const options = {
@@ -37,14 +37,19 @@ export const ReviewForm = ({className, productId, ...rest}: ReviewFormProps): JS
   };
   return (<form onSubmit={handleSubmit(onSubmit)}>
     <div {...rest} className={classNames(s.reviewForm, className)}>
-      <Input {...register('name', options)} placeholder={'Имя'} errorMessage={errors?.name?.message}/>
+      <Input {...register('name', options)} placeholder={'Имя'}
+             aria-invalid={!!errors?.name}
+             errorMessage={errors?.name?.message}/>
       <Input placeholder={'Заголовок отзыва'} className={s.titleInput}
-             errorMessage={errors?.title?.message} {...register('title', options)}/>
+             errorMessage={errors?.title?.message}
+             aria-invalid={!!errors?.title}
+             {...register('title', options)}/>
       <div className={s.rating}>
         <span>Оценка:</span>
         <Controller
           render={(field) => (
             <Rating ref={field.field.ref}
+                    aria-invalid={!!errors?.rating}
                     rating={field.field.value} isEditable
                     errorMessage={errors?.rating?.message}
                     setRating={field.field.onChange}/>)}
@@ -53,10 +58,14 @@ export const ReviewForm = ({className, productId, ...rest}: ReviewFormProps): JS
           rules={{required: {value: true, message: 'Поставьте оценку'}}}/>
 
       </div>
-      <Textarea placeholder={'Текст отзыва'} className={s.textArea} {...register('description', options)}
+      <Textarea placeholder={'Текст отзыва'} className={s.textArea}
+                aria-invalid={!!errors?.description}
+                aria-label={'Текст отзыва. Напишите свой отзыв'}
+                {...register('description', options)}
                 errorMessage={errors?.description?.message}/>
       <div className={s.submit}>
-        <Button appearance={'primary'}>Отправить</Button>
+        <Button appearance={'primary'}
+                onClick={() => clearErrors(['name', 'title', 'rating', 'description'])}>Отправить</Button>
         <span className={s.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
       </div>
     </div>

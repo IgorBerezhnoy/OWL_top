@@ -8,11 +8,17 @@ export const Sort = ({sort, setSort, className, ...rest}: SortProps): JSX.Elemen
   return <div {...rest} className={classNames(className, s.sort)}>
     <button
       onClick={() => setSort(SortEnum.Rating)}
+      aria-label={'Сортировка по рейтингу'}
+      aria-selected={sort === SortEnum.Rating}
+
       className={classNames({[s.active]: sort === SortEnum.Rating}, s.button)}>
       <SortIcon className={s.sortIcon}/>По рейтингу
     </button>
     <button
       onClick={() => setSort(SortEnum.Price)}
+      aria-label={'Сортировка по цене'}
+      aria-selected={sort === SortEnum.Price}
+
       className={classNames({[s.active]: sort == SortEnum.Price}, s.button)}>
       <SortIcon className={s.sortIcon}/>По цене
     </button>

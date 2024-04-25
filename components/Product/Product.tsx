@@ -41,17 +41,20 @@ export const Product = motion(forwardRef(({
         <div className={s.logo}>
           <Image src={product.image} alt={product.title} width={70} height={70}/></div>
         <div className={s.title}>{product.title}</div>
-        <div className={s.price}>
+        <div className={s.price} aria-label={`Цена: ${conversionRub(product.price)}`}>
           {conversionRub(product.price)}
           {product.oldPrice &&
-            <Tag className={s.oldPrice} color={'green'}>{conversionRub(product.price - product.oldPrice)}</Tag>}
+            <Tag aria-label={`Скидка: ${conversionRub(product.oldPrice)}`} className={s.oldPrice}
+                 color={'green'}>{conversionRub(product.price - product.oldPrice)}</Tag>}
         </div>
-        <div className={s.credit}>{conversionRub(product.credit)}<span>/мес</span></div>
-        <div className={s.rating}><Rating rating={product.reviewAvg ?? product.initialRating} isEditable={false}/></div>
+        <div aria-label={`Кредит: ${conversionRub(product.credit)}`}
+             className={s.credit}>{conversionRub(product.credit)}<span>/мес</span></div>
+        <div aria-label={`Рейтинг: ${product.reviewAvg ?? product.initialRating}`} className={s.rating}><Rating
+          rating={product.reviewAvg ?? product.initialRating} isEditable={false}/></div>
         <div className={s.tags}>{product.categories.map(el => <Tag className={s.tab} key={el}
                                                                    color={'ghost'}>{el}</Tag>)}</div>
-        <div className={s.priceTitle}>цена</div>
-        <div className={s.creditTitle}>кредит</div>
+        <div aria-hidden className={s.priceTitle}>цена</div>
+        <div aria-hidden className={s.creditTitle}>кредит</div>
         <div
           className={s.rateTitle}>
           <a href={'#ref'} className={s.rewScroll} tabIndex={0}
@@ -82,8 +85,10 @@ export const Product = motion(forwardRef(({
         <Divider className={classNames(s.hr, s.hr2)}/>
         <div className={s.actions}>
           <Button appearance={'primary'}>Узнать подробнее</Button>
-          <Button appearance={'ghost'} className={s.reviewBottom
-          } onClick={() => setIsReviewOpened(!isReviewOpened)}>Читать
+          <Button appearance={'ghost'}
+                  aria-expanded={isReviewOpened}
+                  className={s.reviewBottom
+                  } onClick={() => setIsReviewOpened(!isReviewOpened)}>Читать
             отзывы <Arrow className={classNames(s.arrow, {[s.down]: isReviewOpened})}/></Button>
         </div>
       </Card>

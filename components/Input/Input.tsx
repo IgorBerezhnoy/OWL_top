@@ -9,7 +9,7 @@ export const Input = forwardRef(({
                                  }: InputProps, ref: ForwardedRef<HTMLInputElement>): JSX.Element => {
   return <div className={s.inputWrapper}>
     <input className={classNames(className, s.input, errorMessage && s.error)} ref={ref}  {...rest} />
-    {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
+    {errorMessage && <span role={'alert'} className={s.errorMessage}>{errorMessage}</span>}
   </div>;
 });
 

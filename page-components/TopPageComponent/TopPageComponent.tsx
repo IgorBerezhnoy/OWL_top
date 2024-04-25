@@ -22,7 +22,9 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
     <div className={s.wrapper}>
       <div className={s.title}>
         <Htag tag="h1">{page.title}</Htag>
-        {products && <Tag color={'grey'} size={'middle'}>{products.length}</Tag>}
+        {products && <Tag color={'grey'} size={'middle'}
+                          aria-label={`Всего ${products.length} продуктов`}>
+          {products.length}</Tag>}
         <Sort sort={sort} setSort={setSort}/>
       </div>
       <div>{sortedProducts && sortedProducts.map(el => <Product layout key={el._id} product={el}/>)}</div>

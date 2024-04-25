@@ -15,7 +15,6 @@ export const Rating = forwardRef(({
     const [hoverRating, setHoverRating] = useState(rating);
     const refRating = useRef<SVGSVGElement[]>([]);
     const arr = [];
-    console.log(refRating);
 
     for (let i = 1; i <= 5; i++) {
       if (isEditable) {
@@ -40,6 +39,11 @@ export const Rating = forwardRef(({
           }
         };
         arr.push(<Star key={i}
+                       role={'slider'}
+                       aria-valuenow={i}
+                       aria-valuemin={1}
+                       aria-valuemax={5}
+                       aria-label={'Поставьте рейтинг'}
                        className={classNames(s.star, i <= hoverRating ? s.field : s.noField, errorMessage && s.errorStars, s.pointer)}
                        onClick={() => setRating(i)}
                        onMouseEnter={() => setHoverRating(i)} onMouseLeave={() => setHoverRating(rating)}
@@ -51,13 +55,15 @@ export const Rating = forwardRef(({
                        }}
                        tabIndex={0}/>);
       } else {
-        arr.push(<Star tabIndex={-1} key={i} className={`${s.star} ${i <= rating ? s.field : s.noField}`}/>);
+        arr.push(<Star tabIndex={-1}
+                       aria-label={`Рейтинг: ${i}`}
+                       key={i} className={`${s.star} ${i <= rating ? s.field : s.noField}`}/>);
 
       }
     }
     return <div {...rest} className={classNames(className, s.ratingWrapper)} ref={ref}>
       {arr}
-      {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
+      {errorMessage && <span role={'alert'} className={s.errorMessage}>{errorMessage}</span>}
     </div>;
   }
 );
