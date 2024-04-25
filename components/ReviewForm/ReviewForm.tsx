@@ -69,13 +69,16 @@ export const ReviewForm = ({className, productId, ...rest}: ReviewFormProps): JS
         <span className={s.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
       </div>
     </div>
-    {isSuccess && <div className={s.success}>
-      <CloseIcon className={s.closeIcon} onClick={() => setIsSuccess(false)}/>
+    {isSuccess && <div role={'alert'} className={s.success}>
+      <button aria-label={'Закрыть'} className={s.closeButton} onClick={() => setIsSuccess(false)}><CloseIcon
+        className={s.closeIcon}/>
+      </button>
       <div className={s.successTitle}>Ваш отзыв отправлен</div>
       <div className={s.successText}>Спасибо, ваш отзыв будет опубликован после проверки</div>
     </div>}
-    {error && <div className={s.error}>
-      <CloseIcon className={classNames(s.closeIcon, s.errorCloseIcon)} onClick={() => setError('')}/>
+    {error && <div role={'alert'} className={s.error}>
+      <button aria-label={'Закрыть'} className={s.closeButton} onClick={() => setError('')}><CloseIcon
+        className={classNames(s.closeIcon, s.errorCloseIcon)}/></button>
       <div className={s.successTitle}>Произошла ошибка</div>
       <div className={s.successText}>{error}</div>
     </div>

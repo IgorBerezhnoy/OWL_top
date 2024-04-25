@@ -1,60 +1,23 @@
-import {Ptag} from '@/components/Ptag/Ptag';
-import {Button} from '@/components/Button/button';
-import {Htag} from '@/components/Htag/Htag';
-import {Card, Input, Search, Tag, Textarea} from '@/components';
-import {Rating} from '@/components/Rating';
-import {JSX, useState} from 'react';
+import {JSX, useEffect} from 'react';
 import {withLayout} from '@/layout';
 import {GetStaticProps} from 'next';
 import axios from 'axios';
 import {MenuItem} from '@/interfaces/menu.interface';
 import {API} from '@/helpers/api';
-import {ButtonIcon} from '@/components/ButtonIcon';
+import {useRouter} from 'next/router';
+import {Loader} from '@/components';
 
 // const inter = Inter({subsets: ['latin']});
 
 export default withLayout(function Home({menu, firstCategory}: HomeProps): JSX.Element {
-  const [rating, setRatting] = useState<number>(0);
-  const [rating1, setRatting1] = useState<number>(0);
-  console.log(menu, firstCategory);
+  const {push} = useRouter();
+
+  useEffect(() => {
+    push('courses/' + menu[0].pages[0].alias);
+  }, []);
   return (
     <>
-      <ButtonIcon appearance={'primary'} icon={'arrow'}/>
-      <ButtonIcon appearance={'primary'} icon={'cross'}/>
-      <ButtonIcon appearance={'primary'} icon={'menu'}/>
-      <ButtonIcon appearance={'white'} icon={'menu'}/>
-      <ButtonIcon appearance={'white'} icon={'cross'}/>
-      aaa
-      <Search/>
-      <Input/>
-      <Input placeholder={'aaaaaa'}/>
-      <Textarea placeholder={'aaaaaa'}/>
-      <Textarea/>
-      <Card>aaaaaaaaaa</Card>
-      <Card color={'blue'}>aaaaaaaaaa</Card>
-      <Card color={'white'}>aaaaaaaaaa</Card>
-      <Button appearance={'primary'} arrow={'right'}>primary</Button>
-      <Button appearance={'ghost'} arrow={'right'}>primary</Button>
-      <Button appearance={'primary'} arrow={'down'}>primary</Button>
-      <Button appearance={'primary'}>primary</Button>
-      <Button onClick={() => console.log('ghost')} appearance={'ghost'}>ghost</Button>
-      <Htag tag={'h1'}>aaaaassaaa</Htag>
-      <Htag tag={'h2'}>aaaaassaaa</Htag>
-      <Htag tag={'h3'}>aaaaassaaa</Htag>
-      <Ptag size={'small'}>aaaaassaaa</Ptag>
-      <Ptag>aaaaassaaa</Ptag>
-      <Ptag size={'middle'}>aaaaassaaa</Ptag>
-      <Ptag size={'large'}>aaaaassaaa</Ptag>
-      <Tag isLink={true} href={'#'} color={'primary'} size={'small'}>aaaaassaaa</Tag>
-      <Tag color={'ghost'} size={'small'}>aaaaassaaa</Tag>
-      <Tag color={'grey'} size={'small'}>aaaaassaaa</Tag>
-      <Tag>aaaaassaaa</Tag>
-      <Tag color={'red'} size={'middle'}>aaaaassaaa</Tag>
-      <Tag size={'large'} color={'grey'}>aaaaassaaa</Tag>
-      <Tag size={'large'} color={'green'}>aaaaassaaa</Tag>
-      <Rating rating={rating} setRating={setRatting}/>
-      <Rating rating={rating1} isEditable={false} setRating={setRatting1}/>
-
+      <Loader/>
     </>
   );
 });

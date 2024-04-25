@@ -16,3 +16,4 @@ export * from './Divider';
 export * from './Review';
 export * from './Up';
 export * from './ReviewForm';
+export * from './loader';

@@ -7,10 +7,11 @@ import {Advantages} from '@/components/Advantages';
 import {Sort} from '@/components/Sort';
 import {SortEnum} from '@/components/Sort/Sort.props';
 import {SortActions, sortReducer} from '@/page-components/TopPageComponent/sort.reducer';
+import {useReducedMotion} from 'framer-motion';
 
 function TopPageComponent({page, products, firstCategory}: TopPageComponentProps) {
   const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
-
+  const shouldReduceMotion = useReducedMotion();
   const setSort = (sort: SortEnum) => {
     dispatchSort({type: sort} as SortActions);
   };
@@ -27,7 +28,10 @@ function TopPageComponent({page, products, firstCategory}: TopPageComponentProps
           {products.length}</Tag>}
         <Sort sort={sort} setSort={setSort}/>
       </div>
-      <div>{sortedProducts && sortedProducts.map(el => <Product layout key={el._id} product={el}/>)}</div>
+      <div role={'list'}>{sortedProducts && sortedProducts.map(el => <Product role={'listitem'}
+                                                                              layout={!shouldReduceMotion}
+                                                                              key={el._id}
+                                                                              product={el}/>)}</div>
       <div className={s.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>
         <Tag color={'red'} size={'middle'}>hh.ru</Tag>
