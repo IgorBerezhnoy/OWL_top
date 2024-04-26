@@ -4,13 +4,16 @@ import axios from 'axios';
 import {withLayout} from '@/layout';
 import {MenuItem} from '@/interfaces/menu.interface';
 import {API} from '@/helpers/api';
+import {useRouter} from 'next/router';
+import Link from 'next/link';
+import {SearchPage} from '@/page-components/searchPage';
 
 function Search(): JSX.Element {
+  const router = useRouter();
 
+  const param = router.query.q;
   return (
-    <>
-      Search
-    </>
+    <SearchPage param={param as string}/>
   );
 }
 
