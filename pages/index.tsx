@@ -7,7 +7,6 @@ import {API} from '@/helpers/api';
 import {useRouter} from 'next/router';
 import {Loader} from '@/components';
 
-// const inter = Inter({subsets: ['latin']});
 
 export default withLayout(function Home({menu}: HomeProps): JSX.Element {
   const {push} = useRouter();
